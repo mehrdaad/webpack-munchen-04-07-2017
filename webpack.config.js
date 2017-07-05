@@ -23,6 +23,7 @@ const commonConfig = merge([
       new HtmlWebpackPlugin({
         title: 'Webpack demo',
       }),
+      new webpack.NamedModulesPlugin(),
     ],
   },
   parts.lintJavaScript({ include: PATHS.app }),
