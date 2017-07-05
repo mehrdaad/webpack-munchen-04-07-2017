@@ -38,6 +38,9 @@ const productionConfig = merge([
         name: 'vendor',
         minChunks: isVendor,
       }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'manifest',
+      }),
     ],
     performance: {
       hints: 'warning', // 'error' or false are valid too
