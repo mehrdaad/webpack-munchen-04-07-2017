@@ -17,7 +17,7 @@ const commonConfig = merge([
     },
     output: {
       path: PATHS.build,
-      filename: '[name].js',
+      filename: '[name].[chunkhash:12].js',
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -46,6 +46,10 @@ const productionConfig = merge([
   },
   parts.extractCSS({ use: 'css-loader' }),
   parts.minifyJavaScript(),
+  parts.setFreeVariable(
+    'process.env.NODE_ENV',
+    'production'
+  ),
 ]);
 
 function isVendor({ resource }) {
